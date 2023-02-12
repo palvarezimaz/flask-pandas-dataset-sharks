@@ -1,0 +1,41 @@
+
+<h1>Shark Attacks in Australia</h1>
+<h3>From 1791 to 2022</h3>
+
+<form method="GET" action="/">
+  <label> Check a year (1791-2022): </label>
+  <input type="number" name="year">
+  <input type="submit">
+  <a href="/">clear results</a>
+</form>
+
+{% if results %}
+<p>There were {{ cases }} recorded incidents in {{ results }}</p>
+{% for i in years %}
+<p>In {{i["state"]}}, a {{i["Sex"].lower()}}
+  {% if i["Age"] == i["Age"] %}
+  aged {{ i["Age"]}}
+  {% endif %}
+  was attacked
+  {% if i["Activity"] == i["Activity"]%}
+  while {{ i["Activity"] }}
+  {% endif %}
+  </p>
+{% endfor %}
+
+{% endif %}
+
+<br/>
+<div>
+  <p>Incidents by Activity:</p>
+  <img src="/static/img/act.png" width="400px" title="Incidents by activity">
+</div>
+<div>
+  <p>Incidents per Gender:</p>
+  <img src="/static/img/gender.png" width="400px" title="Incidents by gender">
+</div>
+<div>
+  <p>Incidents by States:</p>
+  <img src="/static/img/state.png" width="400px" title="Incidents by state">
+</div>
+<p></p>
